@@ -105,3 +105,23 @@ The analysis helps identify:
 ---
 
 ## Project Structure
+pakistan-crop-price-time-series-analysis
+│
+├── data
+│ └── crop_prices.csv
+│
+├── notebooks
+│ └── analysis.ipynb
+│
+├── src
+│ ├── preprocessing.py
+│ ├── trend_analysis.py
+│ └── visualization.py
+│
+├── results
+│ ├── plots
+│ └── reports
+│
+├── requirements.txt
+├── README.md
+└── LICENSE
