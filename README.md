@@ -105,23 +105,73 @@ The analysis helps identify:
 ---
 
 ## Project Structure
-pakistan-crop-price-time-series-analysis
-│
-├── data
-│ └── crop_prices.csv
-│
-├── notebooks
-│ └── analysis.ipynb
-│
-├── src
-│ ├── preprocessing.py
-│ ├── trend_analysis.py
-│ └── visualization.py
-│
-├── results
-│ ├── plots
-│ └── reports
-│
-├── requirements.txt
-├── README.md
-└── LICENSE
+- pakistan-crop-price-time-series-analysis
+- │
+- ├── data
+- │ └── crop_prices.csv
+- │
+- ├── notebooks
+- │ └── analysis.ipynb
+- │
+- ├── src
+- │ ├── preprocessing.py
+- │ ├── trend_analysis.py
+- │ └── visualization.py
+- │
+- ├── results
+- │ ├── plots
+- │ └── reports
+- │
+- ├── requirements.txt
+- ├── README.md
+- └── LICENSE
+
+
+
+### Folder Description
+
+| Folder | Description |
+|------|-------------|
+| `data/` | Contains the dataset used for analysis |
+| `notebooks/` | Jupyter notebooks for exploratory analysis |
+| `src/` | Python scripts for preprocessing, analysis, and visualization |
+| `results/` | Generated plots and output reports |
+| `requirements.txt` | Python dependencies |
+| `README.md` | Project documentation |
+| `LICENSE` | Project license |
+
+---
+
+## Key Insights
+
+The analysis provides insights into:
+
+- Crop price fluctuations over time
+- Seasonal agricultural price patterns
+- Price instability in certain commodities
+- Long-term agricultural market trends
+
+---
+
+## Future Improvements
+
+Possible future extensions include:
+
+- Time-series forecasting using **ARIMA / SARIMA**
+- Machine learning models for crop price prediction
+- Regional market comparisons
+- Integration with weather and climate datasets
+
+---
+
+## Author
+
+**Ali Ahmad**  
+BS Data Science
+
+---
+
+## License
+
+This project is licensed under the **MIT License**.  
+See the `LICENSE` file for more details.
