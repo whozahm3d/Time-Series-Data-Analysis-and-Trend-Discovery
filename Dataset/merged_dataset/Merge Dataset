@@ -1,0 +1,78 @@
+(File is too large, can't upload the file here. Below are the output of the precessing of merged_dataset from all the 53 csv
+
+======================================
+ DATA LOADING & MERGING (COLAB MODE) 
+========================================
+
+
+[INFO] Found 53 CSV files.
+
+[1/53] Processing: Capsicum.csv
+[2/53] Processing: jaman.csv
+[3/53] Processing: Banana(Dozens).csv
+[4/53] Processing: Batho.csv
+[5/53] Processing: Banana.csv
+[6/53] Processing: gram white (local).csv
+[7/53] Processing: lemon.csv
+[8/53] Processing: kinnow.csv
+[9/53] Processing: gram pulse.csv
+[10/53] Processing: green onion.csv
+[11/53] Processing: green fodder.csv
+[12/53] Processing: grapes.csv
+[13/53] Processing: coriander.csv
+[14/53] Processing: Apple_Golden.csv
+[15/53] Processing: grapefruit.csv
+[16/53] Processing: groundnut.csv
+[17/53] Processing: AppleKala Kullu (Madani).csv
+[18/53] Processing: coconut.csv
+[19/53] Processing: mango.csv
+[20/53] Processing: Pomegranate.csv
+[21/53] Processing: orange.csv
+[22/53] Processing: masoor.csv
+[23/53] Processing: Apricot Yellow.csv
+[24/53] Processing: cucumber.csv
+[25/53] Processing: moong_moongray.csv
+[26/53] Processing: gram white (imported).csv
+[27/53] Processing: Canola.csv
+[28/53] Processing: cocoyam.csv
+[29/53] Processing: Apple_Ammre.csv
+[30/53] Processing: guava.csv
+[31/53] Processing: garlic_china.csv
+[32/53] Processing: jaggery.csv
+[33/53] Processing: paddy.csv
+[34/53] Processing: millet melon.csv
+[35/53] Processing: Apple Kala Kullu (Pahari).csv
+[36/53] Processing: Apple_Gatcha.csv
+[37/53] Processing: green chilli.csv
+[38/53] Processing: carrot.csv
+[39/53] Processing: mustard green_musambi.csv
+[40/53] Processing: garlic (local).csv
+[41/53] Processing: carrot china.csv
+[42/53] Processing: jujube.csv
+[43/53] Processing: feutral early.csv
+[44/53] Processing: masoor pulse.csv
+[45/53] Processing: Brown Sugar.csv
+[46/53] Processing: green chickpeas.csv
+[47/53] Processing: ginger (thai).csv
+[48/53] Processing: Peach.csv
+[49/53] Processing: gram flour_.csv
+[50/53] Processing: Apricot White.csv
+[51/53] Processing: gram black.csv
+[52/53] Processing: Cabbage.csv
+[53/53] Processing: cauliflower.csv
+
+[INFO] Successfully loaded 53 datasets.
+
+[INFO] Merging datasets...
+[INFO] Total rows after merge: 7989418
+
+[INFO] Finalizing dataset...
+
+[INFO] Dataset saved at: /content/merged_crop_prices.csv
+
+========== DATA SUMMARY ==========
+Total Records : 7989418
+Total Cities  : 138
+Total Crops   : 76
+Date Range    : 2007-05-07 00:00:00 -> 2022-12-31 00:00:00
+==================================
