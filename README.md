@@ -178,15 +178,69 @@ The project is structured as **5 sequential, modular pipeline stages**, all impl
 
 ## 🖼️ Sample Outputs
 
-| Chart | Description |
-|-------|-------------|
-| `time_series_trend.png` | Mean price across all crops (2008–2024) |
-| `monthly_seasonality.png` | Average price per month — reveals seasonal peaks |
-| `correlation_heatmap.png` | Correlation between all numeric features |
-| `moving_average.png` | 7-day and 30-day MA on representative series (Banana, Vehari) |
-| `rolling_statistics.png` | Rolling mean and std dev — price volatility over time |
-| `decompose.png` | Additive decomposition: trend + seasonal + residual |
-| `compare_trends_top_crops.png` | Price trend overlay for top 5 crops |
+All charts are saved automatically to the `outputs/` folder when the notebook is executed.
+
+---
+
+### 📂 EDA & Visualization
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="outputs/EDA + Visualization/time_series_trend.png" width="100%"/><br/>
+      <b>Fig 1. Price Trend Over Time</b><br/>
+      <sub>Shows the overall mean crop price trend from 2008–2024. A steady upward drift is visible across the full period, with notable acceleration post-2018.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="outputs/EDA + Visualization/monthly_seasonality.png" width="100%"/><br/>
+      <b>Fig 2. Monthly Seasonality Pattern</b><br/>
+      <sub>Average price grouped by month across all crops and cities. Clear seasonal spikes are visible in summer months, reflecting supply constraints during peak heat.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="outputs/EDA + Visualization/correlation_heatmap.png" width="100%"/><br/>
+      <b>Fig 3. Feature Correlation Heatmap</b><br/>
+      <sub>Heatmap of Pearson correlations between all numeric features. Strong positive correlation between Price, Normalized_Price, and lag-based features confirms temporal dependency.</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 📂 Basic Time-Series Analysis
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="outputs/basic_time_series/moving_average.png" width="100%"/><br/>
+      <b>Fig 4. Moving Averages (7-Day & 30-Day)</b><br/>
+      <sub>Applied on Banana(DOZENS) in Vehari — the most data-rich series. The 7-day MA captures short-term fluctuations while the 30-day MA reveals the underlying long-term trend clearly.</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="outputs/basic_time_series/rolling_statistics.png" width="100%"/><br/>
+      <b>Fig 5. Rolling Mean & Std Dev (Volatility)</b><br/>
+      <sub>30-day rolling mean and standard deviation plotted together. Periods of wide std deviation indicate high price instability — useful for identifying volatile market intervals.</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
+### 📂 Advanced Time-Series Analysis
+
+<table>
+  <tr>
+    <td align="center" width="55%">
+      <img src="outputs/advanced_time_series/decompose.png" width="100%"/><br/>
+      <b>Fig 6. Seasonal Decomposition (Trend / Seasonal / Residual)</b><br/>
+      <sub>Classical additive decomposition separating the time-series into three interpretable components: a long-term upward trend, a repeating seasonal cycle, and the irregular residual noise.</sub>
+    </td>
+    <td align="center" width="45%">
+      <img src="outputs/top 5_cross_crops/compare_trends_top_crops.png" width="100%"/><br/>
+      <b>Fig 7. Price Trends Across Top 5 Crops</b><br/>
+      <sub>Overlay of national mean price trends for the top 5 most observed crops. Garlic(China) exhibits the steepest upward trajectory while Cauliflower remains the most price-stable crop.</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -229,16 +283,22 @@ The notebook is fully sequential. All output charts are saved automatically to t
 
 | # | Task | Deliverable | Status |
 |---|------|------------|--------|
-| 1 | Data loading, validation & merging (53 CSVs) | Deliverable 1 | ✅ Complete |
-| 2 | Preprocessing & EDA (9 visualizations) | Deliverable 1 | ✅ Complete |
-| 3 | Basic time-series analysis (MA, rolling stats) | Deliverable 1 | ✅ Complete |
-| 4 | Advanced TS: decomposition, ADF, differencing | Deliverable 1 | ✅ Complete |
-| 5 | Temporal feature engineering (18 features) | Deliverable 1 | ✅ Complete |
-| 6 | ACF/PACF analysis | Deliverable 2 | ⏳ Pending |
-| 7 | ARIMA & Holt-Winters model training | Deliverable 2 | ⏳ Pending |
-| 8 | Evaluation: MAE, RMSE, MAPE | Deliverable 2 | ⏳ Pending |
-| 9 | Hyperparameter tuning & residual analysis | Final | ⏳ Pending |
-| 10 | Final comparative report & presentation | Final | ⏳ Pending |
+| 1 | Dataset loading, validation & merging (53 CSV files) | Deliverable 1 | ✅ Complete |
+| 2 | Missing value handling & outlier removal (IQR) | Deliverable 1 | ✅ Complete |
+| 3 | Calendar feature extraction & price normalization | Deliverable 1 | ✅ Complete |
+| 4 | Exploratory data analysis (9 visualizations) | Deliverable 1 | ✅ Complete |
+| 5 | Basic time-series: moving averages & rolling statistics | Deliverable 1 | ✅ Complete |
+| 6 | Advanced TS: decomposition, ADF test, differencing | Deliverable 1 | ✅ Complete |
+| 7 | Cross-crop trend comparison (top 5 crops) | Deliverable 1 | ✅ Complete |
+| 8 | Temporal feature engineering (18 features, scaled matrix) | Deliverable 1 | ✅ Complete |
+| 9 | ACF/PACF analysis & ARIMA model training | Final | ⏳ Pending |
+| 10 | Holt-Winters Exponential Smoothing implementation | Final | ⏳ Pending |
+| 11 | ML Models: Linear Regression & Random Forest | Final | ⏳ Pending |
+| 12 | Evaluation: MAE, RMSE, MAPE on temporal train-test split | Final | ⏳ Pending |
+| 13 | Hyperparameter tuning & residual analysis | Final | ⏳ Pending |
+| 14 | Clustering analysis (if required) | Final | ⏳ Pending |
+| 15 | Final comparative evaluation & trend insight extraction | Final | ⏳ Pending |
+| 16 | Complete analytical report & visualizations | Final | ⏳ Pending |
 
 ---
 
