@@ -1,0 +1,10 @@
+( File is very large unable to upload here. will provide the drive link or kaggle link in the near future in upload there.)
+( Below is the output of the cleaned merged data. A few rows have been added as a output example for basic understanding.)
+
+
+        City	      Date	        Crop	   Price	Year	  Month	  Day   DayOfWeek	Normalized_Price	City_encoded	Crop_encoded
+0	Abdulhakim	2019-12-21	Apple (Ammre)   8550	  2019	  12	    21	    5	        0.400406	            0	          0
+1	Abdulhakim	2019-12-22	Apple (Ammre)  	8550	  2019	  12	    22	    6	        0.400406	            0	          0
+2	Abdulhakim	2019-12-25	Apple (Ammre)	  8550	  2019	  12	    25	    2	        0.400406	            0	          0
+3	Abdulhakim	2019-12-26	Apple (Ammre)	  8550	  2019	  12	    26	    3	        0.400406	            0	          0
+4	Abdulhakim	2019-12-28	Apple (Ammre)	  8550	  2019	  12	    28	    5	        0.400406	            0	          0
