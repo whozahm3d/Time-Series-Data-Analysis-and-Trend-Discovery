@@ -307,33 +307,6 @@ The notebook is fully sequential. All output charts are saved automatically to t
 - 📄 [Project Proposal](./Data_Mining_Project_Proposal.docx)
 - 📄 [Mid-Semester Progress Report](./DM_MidSemester_Progress_Report.docx)
 
----
-
-## 👥 Contributors
-
-<table>
-  <tr>
-    <td align="center">
-      <b>Taha Nawaz</b><br/>
-      <sub>23L-2644</sub><br/>
-      <a href="https://github.com/tahanawaz">@tahanawaz</a>
-    </td>
-    <td align="center">
-      <b>Ali Ahmad</b><br/>
-      <sub>23L-2619</sub><br/>
-      <a href="https://github.com/aliahmad">@aliahmad</a>
-    </td>
-    <td align="center">
-      <b>Shahzeb Imran</b><br/>
-      <sub>23L-2506</sub><br/>
-      <a href="https://github.com/shahzebimran">@shahzebimran</a>
-    </td>
-  </tr>
-</table>
-
-> 💡 Update the `@username` links above with your actual GitHub usernames before publishing.
-
----
 
 ## 🙏 Acknowledgements
 
