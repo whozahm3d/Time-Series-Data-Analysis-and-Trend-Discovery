@@ -67,7 +67,7 @@ This project addresses this challenge by applying systematic **time-series data 
 📦 pakistan-crop-price-analysis
 ├── 📓 DM_Project_Deliverable_1.ipynb       # Main notebook — all 5 pipeline stages
 │
-├── 📁 outputs/
+├── 📁 Images/
 │   ├── 📁 EDA + Visualization/             # 9 EDA charts
 │   │   ├── time_series_trend.png
 │   │   ├── monthly_seasonality.png
@@ -185,17 +185,17 @@ All charts are saved automatically to the `outputs/` folder when the notebook is
 <table>
   <tr>
     <td align="center" width="33%">
-      <img src="outputs/EDA + Visualization/time_series_trend.png" width="100%"/><br/>
+      <img src="Images/EDA + Visualization/time_series_trend.png" width="100%"/><br/>
       <b>Fig 1. Price Trend Over Time</b><br/>
       <sub>Shows the overall mean crop price trend from 2008–2024. A steady upward drift is visible across the full period, with notable acceleration post-2018.</sub>
     </td>
     <td align="center" width="33%">
-      <img src="outputs/EDA + Visualization/monthly_seasonality.png" width="100%"/><br/>
+      <img src="Images/EDA + Visualization/monthly_seasonality.png" width="100%"/><br/>
       <b>Fig 2. Monthly Seasonality Pattern</b><br/>
       <sub>Average price grouped by month across all crops and cities. Clear seasonal spikes are visible in summer months, reflecting supply constraints during peak heat.</sub>
     </td>
     <td align="center" width="33%">
-      <img src="outputs/EDA + Visualization/correlation_heatmap.png" width="100%"/><br/>
+      <img src="Images/EDA + Visualization/correlation_heatmap.png" width="100%"/><br/>
       <b>Fig 3. Feature Correlation Heatmap</b><br/>
       <sub>Heatmap of Pearson correlations between all numeric features. Strong positive correlation between Price, Normalized_Price, and lag-based features confirms temporal dependency.</sub>
     </td>
@@ -209,12 +209,12 @@ All charts are saved automatically to the `outputs/` folder when the notebook is
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="outputs/basic_time_series/moving_average.png" width="100%"/><br/>
+      <img src="Images/basic_time_series/moving_average.png" width="100%"/><br/>
       <b>Fig 4. Moving Averages (7-Day & 30-Day)</b><br/>
       <sub>Applied on Banana(DOZENS) in Vehari — the most data-rich series. The 7-day MA captures short-term fluctuations while the 30-day MA reveals the underlying long-term trend clearly.</sub>
     </td>
     <td align="center" width="50%">
-      <img src="outputs/basic_time_series/rolling_statistics.png" width="100%"/><br/>
+      <img src="Images/basic_time_series/rolling_statistics.png" width="100%"/><br/>
       <b>Fig 5. Rolling Mean & Std Dev (Volatility)</b><br/>
       <sub>30-day rolling mean and standard deviation plotted together. Periods of wide std deviation indicate high price instability — useful for identifying volatile market intervals.</sub>
     </td>
@@ -228,12 +228,12 @@ All charts are saved automatically to the `outputs/` folder when the notebook is
 <table>
   <tr>
     <td align="center" width="55%">
-      <img src="outputs/advanced_time_series/decompose.png" width="100%"/><br/>
+      <img src="Images/advanced_time_series/decompose.png" width="100%"/><br/>
       <b>Fig 6. Seasonal Decomposition (Trend / Seasonal / Residual)</b><br/>
       <sub>Classical additive decomposition separating the time-series into three interpretable components: a long-term upward trend, a repeating seasonal cycle, and the irregular residual noise.</sub>
     </td>
     <td align="center" width="45%">
-      <img src="outputs/top 5_cross_crops/compare_trends_top_crops.png" width="100%"/><br/>
+      <img src="Images/top 5_cross_crops/compare_trends_top_crops.png" width="100%"/><br/>
       <b>Fig 7. Price Trends Across Top 5 Crops</b><br/>
       <sub>Overlay of national mean price trends for the top 5 most observed crops. Garlic(China) exhibits the steepest upward trajectory while Cauliflower remains the most price-stable crop.</sub>
     </td>
