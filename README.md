@@ -302,8 +302,8 @@ The notebook is fully sequential. All output charts are saved automatically to t
 
 ## 📄 Reports & Documents
 
-- 📄 [Project Proposal](./Data_Mining_Project_Proposal.docx)
-- 📄 [Mid-Semester Progress Report](./DM_MidSemester_Progress_Report.docx)
+- 📄 [Project Proposal](reports & documents/Data Mining Project Proposal.docx)
+- 📄 [Mid-Semester Progress Report](reports & documents/DM_mid_semester_progress_report.docx)
 
 ---
 
