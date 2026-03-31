@@ -1,0 +1,291 @@
+# Advanced multi-series time-series analysis.
+# This script extends basic analysis by:
+# - Handling multiple time-series (multi-crop)
+# - Performing decomposition (trend, seasonality, residual)
+# - Testing stationarity (ADF)
+# - Applying differencing
+# - Comparing trends across crops
+# - Generating analytical insights
+     
+
+# SELECT TOP CROPS
+
+def select_top_crops(df, top_n=5):
+    print(f"[INFO] Selecting top {top_n} crops...")
+
+    return df["Crop"].value_counts().head(top_n).index
+     
+select_top_crops(df, top_n=5)
+
+# AGGREGATE TIME SERIES
+
+def aggregate_series(df, crop):
+    """
+    Convert multi-city data → single time-series per crop
+    """
+
+    subset = df[df["Crop"] == crop]
+
+    ts = subset.groupby("Date")["Price"].mean().sort_index()
+
+    return ts
+  
+aggregate_series(df, 'Apple (Ammre)')
+
+# MOVING AVERAGE (ADVANCED)
+
+def moving_average(ts, crop):
+
+    ma_30 = ts.rolling(window=30).mean()
+
+    plt.figure()
+    plt.plot(ts.index, ts.values, label="Original")
+    plt.plot(ma_30.index, ma_30.values, label="30-Day MA")
+
+    plt.title(f"Trend (Moving Average) - {crop}")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    plt.legend()
+    save_and_show("moving_average_advanced", "outputs/advanced_time_series")
+     
+moving_average(aggregate_series(df, 'Apple (Ammre)'), 'Apple (Ammre)')
+
+# DECOMPOSITION
+
+def decompose(ts, crop):
+
+    print(f"[INFO] Decomposing {crop}...")
+
+    result = seasonal_decompose(ts, model='additive', period=30)
+
+    fig = result.plot() # Get the figure object
+    plt.suptitle(f"Decomposition - {crop}") # Set the suptitle
+    fig.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust layout to make space for suptitle
+    save_and_show("decompose", "outputs/advanced_time_series")
+
+    return result
+     
+decompose(aggregate_series(df, 'Apple (Ammre)'), 'Apple (Ammre)')
+
+# STATIONARITY TEST
+
+def adf_test(ts, label):
+
+    print(f"\n[INFO] ADF Test → {label}")
+
+    result = adfuller(ts.dropna())
+
+    print("ADF Statistic:", result[0])
+    print("p-value:", result[1])
+
+    if result[1] < 0.05:
+        print("→ Stationary")
+    else:
+        print("→ Non-Stationary")
+     
+adf_test(aggregate_series(df, 'Apple (Ammre)'), 'Apple (Ammre)')
+
+# DIFFERENCING
+
+def differencing(ts, crop):
+
+    print(f"[INFO] Applying differencing → {crop}")
+
+    diff = ts.diff()
+
+    plt.figure()
+    plt.plot(diff.index, diff.values)
+    plt.title(f"Differenced Series - {crop}")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    save_and_show("differencing", "outputs/advanced_time_series")
+
+    return diff
+     
+differencing(aggregate_series(df, 'Apple (Ammre)'), 'Apple (Ammre)')
+
+# SEASONALITY (AGGREGATED)
+
+def seasonal_pattern(ts, crop):
+
+    monthly = ts.groupby(ts.index.month).mean()
+
+    plt.figure()
+    plt.plot(monthly.index, monthly.values)
+
+    plt.title(f"Seasonality Pattern - {crop}")
+    plt.xlabel("Month")
+    plt.ylabel("Avg Price")
+    save_and_show("seasonal_pattern", "outputs/advanced_time_series")
+    plt.close()
+
+    return monthly
+     
+seasonal_pattern(aggregate_series(df, 'Apple (Ammre)'), 'Apple (Ammre')
+
+# COMPARATIVE ANALYSIS
+
+def compare_trends(df, crops):
+
+    plt.figure()
+
+    for crop in crops:
+        ts = aggregate_series(df, crop)
+        plt.plot(ts.index, ts.values, label=crop)
+
+    plt.title("Cross-Crop Trend Comparison")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    plt.legend()
+    save_and_show("compare_trends", "outputs/advanced_time_series")
+
+    return None
+     
+compare_trends(df, select_top_crops(df, top_n=5))
+
+# Redefine save_and_show locally to ensure plt.close() is called
+def save_and_show(name, folder):
+    create_dir(folder)
+    path = os.path.join(folder, f"{name}.png")
+    plt.savefig(path, bbox_inches="tight")
+    plt.show()
+    print(f"[SAVED] {path}")
+    plt.close() # Close the plot to free memory and prevent display issues
+     
+
+# Redefine moving_average with unique naming
+def moving_average(ts, crop):
+    print("[INFO] Calculating moving averages...")
+    ma_30 = ts.rolling(window=30).mean()
+    plt.figure()
+    plt.plot(ts.index, ts.values, label="Original")
+    plt.plot(ma_30.index, ma_30.values, label="30-Day MA")
+    plt.title(f"Trend (Moving Average) - {crop}")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    plt.legend()
+    save_and_show(f"{crop.replace(' ', '_').replace('(', '').replace(')', '')}_moving_average_advanced", "outputs/advanced_time_series")
+    return ts.to_frame(name='Price').assign(MA_30=ma_30) # Return updated series for potential chaining
+     
+
+# Redefine decompose with unique naming
+def decompose(ts, crop):
+    print(f"[INFO] Decomposing {crop}...")
+    result = seasonal_decompose(ts, model='additive', period=30)
+    fig = result.plot() # Get the figure object
+    plt.suptitle(f"Decomposition - {crop}") # Set the suptitle
+    fig.tight_layout(rect=[0, 0.03, 1, 0.95]) # Adjust layout to make space for suptitle
+    save_and_show(f"{crop.replace(' ', '_').replace('(', '').replace(')', '')}_decompose", "outputs/advanced_time_series")
+    return result
+     
+
+# Redefine differencing with unique naming
+def differencing(ts, crop):
+    print(f"[INFO] Applying differencing → {crop}")
+    diff = ts.diff()
+    plt.figure()
+    plt.plot(diff.index, diff.values)
+    plt.title(f"Differenced Series - {crop}")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    save_and_show(f"{crop.replace(' ', '_').replace('(', '').replace(')', '')}_differencing", "outputs/advanced_time_series")
+    return diff
+     
+
+# Redefine seasonal_pattern with unique naming
+def seasonal_pattern(ts, crop):
+    monthly = ts.groupby(ts.index.month).mean()
+    plt.figure()
+    plt.plot(monthly.index, monthly.values)
+    plt.title(f"Seasonality Pattern - {crop}")
+    plt.xlabel("Month")
+    plt.ylabel("Avg Price")
+    save_and_show(f"{crop.replace(' ', '_').replace('(', '').replace(')', '')}_seasonal_pattern", "outputs/advanced_time_series")
+    return monthly
+     
+
+# Redefine compare_trends to use the local save_and_show (and for clarity)
+def compare_trends(df, crops):
+    plt.figure()
+    for crop in crops:
+        ts = aggregate_series(df, crop)
+        plt.plot(ts.index, ts.values, label=crop)
+    plt.title("Cross-Crop Trend Comparison")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    plt.legend()
+    save_and_show("compare_trends_top_crops", "outputs/advanced_time_series")
+    return None
+     
+
+# Main Pipeline
+
+def advanced_time_series_pipeline(file_path):
+    print("\n======================================")
+    print(" ADVANCED TIME-SERIES ANALYSIS ")
+    print("======================================")
+
+    # Select important crops
+    crops = select_top_crops(df, top_n=5)
+
+    # Compare overall trends
+    compare_trends(df, crops)
+
+    # Analyze each crop deeply
+    for crop in crops:
+
+        print("\n===================================")
+        print(f" ANALYSIS FOR: {crop}")
+        print("===================================")
+
+        ts = aggregate_series(df, crop)
+
+        # Trend smoothing
+        moving_average(ts, crop)
+
+        # Seasonality
+        seasonal_pattern(ts, crop)
+
+        # Decomposition
+        decompose(ts, crop)
+
+        # Stationarity
+        adf_test(ts, f"{crop} (Original)")
+
+        # Differencing
+        diff = differencing(ts, crop)
+
+        # Re-test stationarity
+        adf_test(diff, f"{crop} (Differenced)")
+
+    print("\n[INFO] Advanced time-series analysis completed.")
+     
+
+# Call the redefined pipeline
+advanced_time_series_pipeline(df)
+
+# 1. MULTI-SERIES HANDLING
+# Unlike basic analysis (single series), this script analyzes multiple crops, making it scalable and realistic.
+
+# 2. AGGREGATION STRATEGY
+# We convert multi-city data into a single representative series per crop, reducing complexity while preserving trends.
+
+# 3. DECOMPOSITION
+# We explicitly separate: 1. Trend 2. Seasonality 3.Noise
+# This reveals hidden patterns not visible in raw data.
+
+# 4. STATIONARITY TESTING:  We validate statistical assumptions using ADF test.
+
+# 5. DIFFERENCING
+# We transform non-stationary data into stationary form, which is critical for time-series modeling.
+
+# 6. COMPARATIVE ANALYSIS
+# We compare multiple crops to identify:
+# - stable vs volatile crops, seasonal vs non-seasonal behavior
+
+# 7. REAL-WORLD CHALLENGE HANDLING
+# This script handles:
+# - large dataset (via top-N selection), multiple time-series, noisy data, irregular patterns
+
+# CONCLUSION:
+# This script transforms raw agricultural price data into structured insights, fulfilling the goal of Time-Series Data Analysis and Trend Discovery.
