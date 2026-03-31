@@ -65,7 +65,8 @@ This project addresses this challenge by applying systematic **time-series data 
 
 ```
 📦 pakistan-crop-price-analysis
-├── 📓 DM_Project_Deliverable_1.ipynb       # Main notebook — all 5 pipeline stages
+├── 📓 Notebooks
+│   ├── DM_Project_Deliverable_1.ipynb       # Main notebook — all 5 pipeline stages
 │
 ├── 📁 Images/
 │   ├── 📁 EDA + Visualization/             # 9 EDA charts
@@ -97,8 +98,10 @@ This project addresses this challenge by applying systematic **time-series data 
 │       ├── ... (20 crop-specific charts)
 │       └── compare_trends_top_crops.png
 │
-├── 📄 Data_Mining_Project_Proposal.docx    # Original project proposal
-├── 📄 DM_MidSemester_Progress_Report.docx # Mid-semester progress report
+├── 📄Reports & Documents
+│    ├── Data_Mining_Project_Proposal.docx    # Original project proposal
+│    ├── DM_MidSemester_Progress_Report.docx # Mid-semester progress report
+│
 ├── 📄 LICENSE
 └── 📄 README.md
 ```
